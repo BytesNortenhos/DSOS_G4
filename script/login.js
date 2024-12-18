@@ -17,6 +17,12 @@ function login() {
             if (response === 'adminGer') {
                 window.location.href = 'adminGer/index.php';
             }
+            else{
+                document.getElementById('redToast').style.display = 'block';
+            }
         }
     });
+}
+function closeToast() {
+    document.getElementById('redToast').style.display = 'none';
 }
