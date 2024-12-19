@@ -1,5 +1,12 @@
-<?php include("nav.php");
-session_start(); ?>
+<?php 
+session_start();
+if($_SESSION['adminGer'] != true) {
+  header('Location: ../index.php');
+  exit();
+}
+else{
+  include("nav.php");
+} ?>
 <!doctype html>
 <html>
 
@@ -10,6 +17,7 @@ session_start(); ?>
   <script src="../script/tailwind.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../script/addLar.js"></script>
+  <title>Adicionar lar</title>
 </head>
 
 <body class="bg-primary flex justify-top">

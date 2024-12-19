@@ -11,6 +11,7 @@ unset($_SESSION['adminGer']);
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="script/login.js"></script>
   <link rel="stylesheet" href="css/index.css">
+  <title>Rodas & Bengalas</title>
 </head>
 
 <body class="bg-primary flex flex-wrap justify-center items-center h-screen">

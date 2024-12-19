@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../script/tailwind.js"></script>
+  <title>Rodas & Bengalas</title>
 </head>
 <body class="bg-primary flex justify-top">
   <div class="flex flex-col p-10">
