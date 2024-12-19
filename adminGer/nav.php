@@ -24,7 +24,7 @@
   </style>
 </head>
 <header class="w-24">
-<aside class="w-24 bg-gradient-to-b from-blue to-darkGreen h-screen p-5 flex flex-wrap flex-col items-center">
+<aside class="w-24 bg-gradient-to-b from-blue to-darkGreen h-screen p-5 flex flex-wrap flex-col items-center fixed">
         <nav>
             <ul>
                 <li>
@@ -37,7 +37,7 @@
                     <a href="home.html" class="text-white block hover:esta-change" title="Estatísticas"><img src="../img/estatIcon.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
-                    <a href="home.html" class="text-white block hover:gestAdmin-change" title="Gerir administradores"><img src="../img/gestAdmin.png" class="w-14 h-14"></a>
+                    <a href="gerirAdmin.php" class="text-white block hover:gestAdmin-change" title="Gerir administradores"><img src="../img/gestAdmin.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-52">
                     <a href="../index.php" class="text-white block hover:logout-change" title="Logout"><img src="../img/logout.png" class="w-14 h-14"></a>

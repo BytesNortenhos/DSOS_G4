@@ -8,6 +8,7 @@ tailwind.config = {
         darkGray: '#121212FF',
         darkBlue: '#0B4171FF',
         darkGreen: '#117B65FF',
+        redE: '#FF0000FF',
       },
       height: {
         'sContainer': '600px',

@@ -1,5 +1,12 @@
-<?php include("nav.php");
-session_start(); ?>
+<?php 
+session_start();
+if($_SESSION['adminGer'] != true) {
+  header('Location: ../index.php');
+  exit();
+}
+else{
+  include("nav.php");
+} ?>
 <!doctype html>
 <html>
 
@@ -9,22 +16,23 @@ session_start(); ?>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../script/tailwind.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../script/addLar.js"></script>
+  <script src="../script/adminGerScript"></script>
+  <title>Adicionar lar</title>
 </head>
 
 <body class="bg-primary flex justify-top">
-  <div class="w-screen flex flex-col items-center justify-center">
+  <div class="w-screen flex flex-col items-center justify-center h-screen">
     <h1 class="text-secondary text-6xl font-bold">ADICIONAR LAR</h1>
     <a class="text-secondary text-xl">No seguinte formulário poderá registar novos lares!</a>
-    <form class="flex flex-col justify-center items-center content-center mt-12 w-full" action="inserirLar.php"
+    <form class="flex flex-col justify-center items-center content-center mt-12 w-full" action="insereLar.php"
       method="POST" onsubmit="addLar(); return false;">
-      <input class="h-10 w-1/2 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
+      <input class="h-10 w-96 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
         type="text" id="nomeLar" placeholder="Nome do lar">
       <input
-        class="h-10 w-1/2 mt-5 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
+        class="h-10 w-96 mt-5 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
         type="text" id="moradaLar" placeholder="Morada">
       <button
-        class="h-10 w-1/2 mt-8 bg-primary text-secondary rounded-2xl border-solid border-secondary border-2 hover:bg-secondary hover:text-darkBlue"
+        class="h-10 w-96 mt-8 bg-primary text-secondary rounded-2xl border-solid border-secondary border-2 hover:bg-secondary hover:text-darkBlue"
         type="submit">Submeter</button>
     </form>
     <div id="sucessToast" style="display:none"
