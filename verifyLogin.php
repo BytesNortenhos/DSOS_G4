@@ -14,18 +14,19 @@ if (empty($_POST['email']) || empty($_POST['pass'])) {
 
 $user = $_POST['email'];
 $pass = $_POST['pass'];
+$hash = hash('sha256', $hashSalt . $pass);
 
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM tblStaff WHERE email = ? AND password = ?";
+$query = "SELECT * FROM tblStaff WHERE email = ? AND password LIKE ?";
 $stmt = $conn->prepare($query);
 if (!$stmt) {
     die("Statement preparation failed: " . $conn->error);
 }
 
-$stmt->bind_param('ss', $user, $pass);
+$stmt->bind_param('ss', $user, $hash);
 $stmt->execute();
 $result = $stmt->get_result();
 

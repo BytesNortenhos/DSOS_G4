@@ -15,6 +15,7 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $pass = $_POST['pass'];
 $idLar = $_POST['idLar'];
+$hash = hash('sha256', $hashSalt . $pass);
 
 
 if (!$conn) {
@@ -39,7 +40,7 @@ else{
     if (!$stmt) {
         die("Statement preparation failed: " . $conn->error);
     }
-    $stmt->bind_param('ssss', $idLar, $nome, $email, $pass);
+    $stmt->bind_param('ssss', $idLar, $nome, $email, $hash);
     $stmt->execute();
     echo "sucesso";
 }

@@ -3,6 +3,7 @@ $servername = "ctesp.dei.isep.ipp.pt";
 $database = "2024_DSOS_Grupo4_F";
 $username = "2024_DSOS_Grupo4_F";
 $password = "fckRw8765!";
+$hashSalt = "Irineu:D";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
