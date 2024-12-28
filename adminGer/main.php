@@ -8,11 +8,11 @@
   <title>Rodas & Bengalas</title>
 </head>
 <body class="bg-primary flex justify-top">
-  <div class="flex flex-col p-10">
+  <div class="flex flex-col p-10 justify-end items-end h-screen w-screen" style="background-image: url('../img/indexAdminGerLar.png'); background-repeat: no-repeat;">
   <h1 class="text-secondary text-6xl font-bold">
   RODAS & BENGALAS
   </h1>
-  <a class="text-secondary text-xl">Seja bem vindo <?php echo $_SESSION['nome'] ?>! Veja abaixo todos os lares disponíveis:</a>
+  <a class="text-secondary text-xl">Seja bem vindo <?php echo $_SESSION['nome'] ?>! Através deste site poderá gerir todos os seus lares e administradores!</a>
   </div>
 </body>
 </html>

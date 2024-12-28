@@ -31,7 +31,7 @@
                     <a href="index.php" class="text-white block hover:lar-change" title="Home"><img src="../img/larIcon.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-28">
-                    <a href="addLar.php" class="text-white block hover:addLar-change" title="Registar lar"><img src="../img/addLar.png" class="w-14 h-14"></a>
+                    <a href="gerirLares.php" class="text-white block hover:addLar-change" title="Gerir lares"><img src="../img/addLar.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
                     <a href="home.html" class="text-white block hover:esta-change" title="Estatísticas"><img src="../img/estatIcon.png" class="w-14 h-14"></a>

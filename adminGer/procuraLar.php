@@ -14,8 +14,6 @@ if ($result->num_rows > 0) {
         $lares[] = $row;
     }
 }
-
-header('Content-Type: application/json');
-echo json_encode($lares);
+echo "<script>const lares = " . json_encode($lares) . ";</script>";
 
 ?>

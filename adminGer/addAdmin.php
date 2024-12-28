@@ -34,7 +34,8 @@ if ($_SESSION['adminGer'] != true) {
             <input
                 class="h-10 w-96 mt-5 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
                 type="password" id="passAdmin" placeholder="Password">
-            <select name="lares" id="lares" class="h-10 w-96 mt-5 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary" placeholder="Lar">
+                <?php include("procuraLar.php"); ?>
+                <select name="lares" id="lares" class="h-10 w-96 mt-5 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary" placeholder="Lar">
                 <option value="" disabled selected hidden>Lar</option> 
             </select>
             <button
@@ -126,15 +127,11 @@ if ($_SESSION['adminGer'] != true) {
     document.addEventListener("DOMContentLoaded", function () {
     const selectElement = document.getElementById("lares");
 
-    // Fetch options from the server
-    fetch("procuraLar.php")
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                data.forEach(item => {
+        if (lares.length > 0) {
+                lares.forEach(lar => {
                     const option = document.createElement("option");
-                    option.value = item.id; 
-                    option.textContent = item.nome; 
+                    option.value = lar.id; 
+                    option.textContent = lar.nome; 
                     selectElement.appendChild(option);
                 });
             }
@@ -142,7 +139,6 @@ if ($_SESSION['adminGer'] != true) {
         .catch(error => {
             console.error("Error fetching options:", error);
         });
-});
 </script>
 
 </html>
