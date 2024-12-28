@@ -38,6 +38,13 @@ if ($result && $result->num_rows === 1) {
         echo 'adminGer';
         exit();
     }
+    if ($userData['idTipo'] == 2) {
+        $_SESSION['adminLar'] = true;
+        $_SESSION['nome'] = $userData['nome'];
+        $_SESSION['idLar'] = $userData['idLar'];
+        echo 'adminLar';
+        exit();
+    }
 } else {
     $_SESSION['nao_autenticado'] = true;
     echo "nao autenticado";

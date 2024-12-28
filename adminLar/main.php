@@ -1,9 +1,9 @@
 <?php
 session_start();
-if ($_SESSION['adminGer'] != true) {
+if ($_SESSION['adminLar'] != true) {
     header('Location: ../index.php');
     exit();
-} ?>
+}  ?>
 <!doctype html>
 <html>
 <head>
@@ -18,7 +18,7 @@ if ($_SESSION['adminGer'] != true) {
   <h1 class="text-secondary text-6xl font-bold">
   RODAS & BENGALAS
   </h1>
-  <a class="text-secondary text-xl">Seja bem vindo <?php echo $_SESSION['nome'] ?>! Através deste site poderá gerir todos os seus lares e administradores!</a>
+  <a class="text-secondary text-xl">Seja bem vindo <?php echo $_SESSION['nome'] ?>! Através deste site poderá gerir todos os técnicos, medicamentos e utentes do seu lar!</a>
   </div>
 </body>
 </html>

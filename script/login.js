@@ -17,8 +17,8 @@ function login() {
             if (response === 'adminGer') {
                 window.location.href = 'adminGer/index.php';
             }
-            else{
-                document.getElementById('redToast').style.display = 'block';
+            if(response === 'adminLar') {
+                window.location.href = 'adminLar/index.php';
             }
         }
     });
