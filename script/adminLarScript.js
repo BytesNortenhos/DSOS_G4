@@ -79,6 +79,83 @@ function addMed() {
         }
     });
 }
+
+function editMed() {
+    var nome = document.getElementById('nomeMed').value;
+    var marca = document.getElementById('marcaMed').value;
+    var princAtivo = document.getElementById('princAtivo').value;
+    var dose = document.getElementById('doseMed').value;
+    var toma = document.getElementById('tomaMed').value;
+
+
+    var formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('marca', marca);
+    formData.append('princAtivo', princAtivo);
+    formData.append('dose', dose);
+    formData.append('toma', toma);
+
+
+    $.ajax({
+        type: 'POST',
+        url: 'editaMed.php',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.trim() === 'sucesso') {
+                localStorage.setItem('showToast', 'true');
+                location.href = 'gerirMed.php';
+
+            }
+            if (response.trim() === 'campo vazio') {
+                localStorage.setItem('showRedToast', 'true');
+                location.reload();
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('AJAX error:', status, error);
+        }
+    });
+}
+
+function addUtente() {
+    var nome = document.getElementById('nomeUtente').value;
+    var contacto = document.getElementById('contactoUtente').value;
+
+
+    var formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('contacto', contacto);
+
+    $.ajax({
+        type: 'POST',
+        url: 'insereUtente.php',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.trim() === 'sucesso') {
+                localStorage.setItem('showToast', 'true');
+                location.reload();
+
+            }
+            if (response.trim() === 'campo vazio') {
+                localStorage.setItem('showRedToast', 'true');
+                location.reload();
+            }
+            if (response.trim() === 'utente ja existe') {
+                localStorage.setItem('showYellowToast', 'true');
+                location.reload();
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('AJAX error:', status, error);
+        }
+    });
+}
+
+
 function closeToast(id) {
     document.getElementById(id).style.display = 'none';
 }

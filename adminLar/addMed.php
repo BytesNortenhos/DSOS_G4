@@ -23,7 +23,7 @@ if ($_SESSION['adminLar'] != true) {
     <div class="w-screen flex flex-col items-center justify-center h-screen">
         <h1 class="text-secondary text-6xl font-bold">ADICIONAR MEDICAMENTOS</h1>
         <a class="text-secondary text-xl">No seguinte formulário poderá registar novos medicamentos para o seu lar!</a>
-        <form class="flex flex-col justify-center items-center content-center mt-12 w-full" action="insereTec.php"
+        <form class="flex flex-col justify-center items-center content-center mt-12 w-full" action="insereMed.php"
             method="POST" onsubmit="addMed(); return false;">
             <input
                 class="h-10 w-96 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"

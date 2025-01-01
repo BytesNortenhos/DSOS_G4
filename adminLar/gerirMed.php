@@ -38,11 +38,42 @@ if ($_SESSION['adminLar'] != true) {
     <div id="tec-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
     </div>
     <?php include("procuraMed.php"); ?>
+    <div id="sucessToast" style="display:none"
+            class=" mt-5 max-w-xs bg-teal-100 border border-teal-200 text-sm text-teal-800 rounded-lg dark:bg-teal-800/10 dark:border-teal-900 dark:text-teal-500"
+            role="alert" tabindex="-1" aria-labelledby="hs-toast-soft-color-teal-label">
+            <div id="hs-toast-soft-color-teal-label" class="flex p-4">
+                Medicamento editado com sucesso!
+
+                <div class="ms-auto">
+                    <button type="button"
+                        class="inline-flex shrink-0 justify-center items-center size-5 rounded-lg text-teal-800 opacity-50 hover:opacity-100 focus:outline-none focus:opacity-100 dark:text-teal-200"
+                        aria-label="Close">
+                        <span class="sr-only">Close</span>
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" onclick="closeToast('sucessToast');">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
   </div>
+
 </body>
 <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (localStorage.getItem('showToast') === 'true') {
+            document.getElementById('sucessToast').style.display = 'block';
+            localStorage.removeItem('showToast');
+        }
+        if (localStorage.getItem('showRedToast') === 'true') {
+            document.getElementById('redToast').style.display = 'block';
+            localStorage.removeItem('showRedToast');
+        }
+    });
   const container = document.getElementById('tec-container');
-
   if (medicamentos.length) {
     medicamentos.forEach(medicamento => {
       const card = document.createElement('div');
@@ -72,6 +103,9 @@ if ($_SESSION['adminLar'] != true) {
       buttonEdit = document.createElement('button');
       buttonEdit.className = "bg-primary text-secondary font-bold py-2 px-4 rounded mt-4";
       buttonEdit.textContent = "Editar";
+      buttonEdit.addEventListener('click', function() {
+        window.location.href = 'editMed.php?id=' +medicamento.id + '&nomeMed=' + medicamento.nome + '&marca=' + medicamento.marca + '&princAtivo=' + medicamento.principioAtivo + '&dose=' + medicamento.dose + '&toma=' + medicamento.toma;
+      });
 
       card.appendChild(name);
       card.appendChild(marca);

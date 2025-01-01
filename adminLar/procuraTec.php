@@ -5,8 +5,11 @@ error_reporting(E_ALL);
 
 include("../connection.php");
 
-$sql = "SELECT * from tblStaff WHERE idTipo = 3";
-$result = $conn->query($sql);
+$sql = "SELECT * from tblStaff WHERE idLar = ? AND idTipo = 3";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $_SESSION['idLar']);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $tecnicos = [];
 if ($result->num_rows > 0) {

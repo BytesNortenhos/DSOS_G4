@@ -16,24 +16,21 @@ if ($_SESSION['adminLar'] != true) {
     <script src="../script/tailwind.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../script/adminLarScript.js"></script>
-    <title>Registar técnicos</title>
+    <title>Registar utente</title>
 </head>
 
 <body class="bg-primary flex justify-top">
     <div class="w-screen flex flex-col items-center justify-center h-screen">
-        <h1 class="text-secondary text-6xl font-bold">ADICIONAR TÉCNICO</h1>
-        <a class="text-secondary text-xl">No seguinte formulário poderá registar novos técnicos para o seu lar!</a>
+        <h1 class="text-secondary text-6xl font-bold">ADICIONAR UTENTE</h1>
+        <a class="text-secondary text-xl">No seguinte formulário poderá registar novos utentes para o seu lar!</a>
         <form class="flex flex-col justify-center items-center content-center mt-12 w-full" action="insereTec.php"
-            method="POST" onsubmit="addTec(); return false;">
+            method="POST" onsubmit="addUtente(); return false;">
             <input
                 class="h-10 w-96 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
-                type="text" id="nomeTec" placeholder="Nome">
-            <input
+                type="text" id="nomeUtente" placeholder="Nome">
+                <input
                 class="h-10 w-96 mt-5 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
-                type="text" id="emailTec" placeholder="Email">
-            <input
-                class="h-10 w-96 mt-5 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
-                type="password" id="passTec" placeholder="Password">
+                type="text" id="contactoUtente" placeholder="Contacto">
             </select>
             <button
                 class="h-10 w-96 mt-8 bg-primary text-secondary rounded-2xl border-solid border-secondary border-2 hover:bg-secondary hover:text-darkBlue"
@@ -43,7 +40,7 @@ if ($_SESSION['adminLar'] != true) {
             class=" mt-5 max-w-xs bg-teal-100 border border-teal-200 text-sm text-teal-800 rounded-lg dark:bg-teal-800/10 dark:border-teal-900 dark:text-teal-500"
             role="alert" tabindex="-1" aria-labelledby="hs-toast-soft-color-teal-label">
             <div id="hs-toast-soft-color-teal-label" class="flex p-4">
-                Técnico registado com sucesso!
+                Utente registado com sucesso!
 
                 <div class="ms-auto">
                     <button type="button"
@@ -85,7 +82,7 @@ if ($_SESSION['adminLar'] != true) {
             class="mt-5 max-w-xs bg-yellow-100 border border-yellow-200 text-sm text-yellow-800 rounded-lg dark:bg-yellow-800/10 dark:border-yellow-900 dark:text-yellow-500"
             role="alert" tabindex="-1" aria-labelledby="hs-toast-soft-color-yellow-label">
             <div id="hs-toast-soft-color-yellow-label" class="flex p-4">
-                O Técnico que tentou registar já está registado!
+                O utente que tentou registar já está registado!
 
                 <div class="ms-auto">
                     <button type="button"

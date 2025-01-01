@@ -18,8 +18,8 @@ if ($_SESSION['adminLar'] != true) {
     .hover\:addLar-change:hover img {
       content: url('../img/addLarHover.png'); 
     }
-    .hover\:esta-change:hover img {
-      content: url('../img/estatIconHover.png'); 
+    .hover\:med-change:hover img {
+      content: url('../img/gerirMedHover.png'); 
     }
     .hover\:gestAdmin-change:hover img {
       content: url('../img/gestAdminHover.png'); 
@@ -40,10 +40,10 @@ if ($_SESSION['adminLar'] != true) {
                     <a href="gerirTec.php" class="text-white block hover:gestAdmin-change" title="Gerir técnicos"><img src="../img/gestAdmin.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
-                    <a href="gerirLares.php" class="text-white block hover:addLar-change" title="Gerir lares"><img src="../img/addLar.png" class="w-14 h-14"></a>
+                    <a href="gerirMed.php" class="text-white block hover:med-change" title="Gerir medicamentos"><img src="../img/gerirMed.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
-                    <a href="home.html" class="text-white block hover:esta-change" title="Estatísticas"><img src="../img/estatIcon.png" class="w-14 h-14"></a>
+                    <a href="gerirUtentes.php" class="text-white block hover:addLar-change" title="Gerir utentes"><img src="../img/addLar.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-52">
                     <a href="../index.php" class="text-white block hover:logout-change" title="Logout"><img src="../img/logout.png" class="w-14 h-14"></a>

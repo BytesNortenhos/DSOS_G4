@@ -1,6 +1,7 @@
 <?php
 session_start();
 unset($_SESSION['adminGer']);
+unset($_SESSION['adminLar']);
 ?>
 
 <head>

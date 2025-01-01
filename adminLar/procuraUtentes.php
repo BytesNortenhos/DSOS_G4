@@ -5,20 +5,18 @@ error_reporting(E_ALL);
 
 include("../connection.php");
 
-$sql = "SELECT * from tblMedicamentos WHERE idLar = ?";
+$sql = "SELECT * from tblUtentes WHERE idLar = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_SESSION['idLar']);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$medicamentos = [];
+$utentes = [];
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $medicamentos[] = $row;
+        $utentes[] = $row;
     }
 }
-echo "<script>const medicamentos = " . json_encode($medicamentos) . ";</script>";
+echo "<script>const utentes = " . json_encode($utentes) . ";</script>";
 
-$stmt->close();
-$conn->close();
 ?>
