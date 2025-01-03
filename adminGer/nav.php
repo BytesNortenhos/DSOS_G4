@@ -40,7 +40,7 @@ if ($_SESSION['adminGer'] != true) {
                     <a href="gerirLares.php" class="text-white block hover:addLar-change" title="Gerir lares"><img src="../img/addLar.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
-                    <a href="home.html" class="text-white block hover:esta-change" title="Estatísticas"><img src="../img/estatIcon.png" class="w-14 h-14"></a>
+                    <a href="estatisticas.php" class="text-white block hover:esta-change" title="Estatísticas"><img src="../img/estatIcon.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
                     <a href="gerirAdmin.php" class="text-white block hover:gestAdmin-change" title="Gerir administradores"><img src="../img/gestAdmin.png" class="w-14 h-14"></a>
