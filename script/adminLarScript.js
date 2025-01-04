@@ -119,6 +119,57 @@ function editMed() {
     });
 }
 
+function uploadUtente() {
+    alert("O Ficheiro deve ser um CSV em que cada linha representa um medicamento e cada coluna representa um atributo do medicamento. Ordem: dose, principioAtivo, nome, marca, toma");
+
+    const fileInput = document.getElementById("csvFile");
+    fileInput.click();
+    fileInput.addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+            const formData = new FormData();
+            formData.append("idLar", document.getElementById('idLarForUpload').value);
+            formData.append("csvFile", fileInput.files[0]);
+
+            $.ajax({
+                type: 'POST',
+                url: 'uploadMed.php',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    switch (response.trim()) {
+                        case 'sucesso':
+                            localStorage.setItem('upload-sucesso', 'true');
+                            location.reload();
+                            break;
+                        case 'extensao-errada':
+                            localStorage.setItem('upload-erro-extensao', 'true');
+                            location.reload();
+                            break;
+                        case 'sem-ficheiro':
+                            localStorage.setItem('upload-sem-ficheiro', 'true');
+                            location.reload();
+                            break;
+                        case 'request-errado':
+                            localStorage.setItem('upload-request-errado', 'true');
+                            location.reload();
+                            break;
+                    }
+
+                    if(response.startsWith('erro')) {
+                        localStorage.setItem('erro', response);
+                        location.reload();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert('Erro: ' + response);
+                    console.error('AJAX error:', status, error);
+                }
+            });
+        }
+    });
+}
+
 function addUtente() {
     var nome = document.getElementById('nomeUtente').value;
     var contacto = document.getElementById('contactoUtente').value;
