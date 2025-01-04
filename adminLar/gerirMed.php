@@ -21,6 +21,10 @@ if ($_SESSION['adminLar'] != true) {
       .hover\:add-change:hover img {
       content: url('../img/addHover.png'); 
     }
+
+    .hover\:upload-change:hover img {
+      content: url('../img/addHover.png'); 
+    }
   </style>
 </head>
 
@@ -28,6 +32,11 @@ if ($_SESSION['adminLar'] != true) {
   <div class="w-screen flex flex-col p-10">
     <div class="relative">
       <h1 class="text-secondary text-6xl font-bold">GERIR MEDICAMENTOS</h1>
+      <!-- ATUALIZAR IMAGEM -->
+      <a class="absolute top-0 right-24 bg-primary text-secondary font-bold py-2 px-4 rounded hover:upload-change"
+        href="#" id="submitLink" onclick="uploadUtente();">
+        <img src="../img/add.png">
+      </a>
       <a class="absolute top-0 right-0 bg-primary text-secondary font-bold py-2 px-4 rounded hover:add-change"
         href="addMed.php">
         <img src="../img/add.png">
@@ -38,7 +47,7 @@ if ($_SESSION['adminLar'] != true) {
     <div id="tec-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
     </div>
     <?php include("procuraMed.php"); ?>
-    <div id="sucessToast" style="display:none"
+        <div id="sucessToast" style="display:none"
             class=" mt-5 max-w-xs bg-teal-100 border border-teal-200 text-sm text-teal-800 rounded-lg dark:bg-teal-800/10 dark:border-teal-900 dark:text-teal-500"
             role="alert" tabindex="-1" aria-labelledby="hs-toast-soft-color-teal-label">
             <div id="hs-toast-soft-color-teal-label" class="flex p-4">
@@ -61,6 +70,13 @@ if ($_SESSION['adminLar'] != true) {
         </div>
   </div>
 
+
+  <!-- Form Escondido -->
+  <form id="csvForm" action="upload.php" method="post" enctype="multipart/form-data" style="display: none;">
+    <input type="file" name="csvFile" id="csvFile" accept=".csv" required>
+    <input type="hidden" name="idLarForUpload" id="idLarForUpload" value="<?php echo $_SESSION['idLar'] ?>"/>
+  </form>
+
 </body>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -71,6 +87,33 @@ if ($_SESSION['adminLar'] != true) {
         if (localStorage.getItem('showRedToast') === 'true') {
             document.getElementById('redToast').style.display = 'block';
             localStorage.removeItem('showRedToast');
+        }
+        if (
+            localStorage.getItem('upload-sucesso') === 'true'
+            || localStorage.getItem('upload-erro-extensao') === 'true'
+            || localStorage.getItem('upload-sem-ficheiro') === 'true'
+            || localStorage.getItem('upload-request-errado') === 'true'
+            || localStorage.getItem('erro') !== null
+           ) {
+            
+            if (localStorage.getItem('upload-sucesso') === 'true') {
+                localStorage.removeItem('upload-sucesso');
+                alert('Ficheiro carregado com sucesso!');
+            } else if (localStorage.getItem('upload-erro-extensao') === 'true') {
+                localStorage.removeItem('upload-erro-extensao');
+                alert('Extensão do ficheiro inválida!');
+            } else if (localStorage.getItem('upload-sem-ficheiro') === 'true') {
+                localStorage.removeItem('upload-sem-ficheiro');
+                alert('Nenhum ficheiro selecionado!');
+            } else if (localStorage.getItem('upload-request-errado') === 'true') {
+                localStorage.removeItem('upload-request-errado');
+                alert('Pedido inválido!');
+            } else if (localStorage.getItem('erro')) {
+                let tempData = localStorage.getItem('erro');
+                localStorage.removeItem('erro');
+                alert('Os dados CORRETOS foram inseridos! Verifique no ficheiro possíveis Erro(s) na(s) linha(s): ' + tempData.replace('erro', ''));
+            }
+
         }
     });
   const container = document.getElementById('tec-container');
