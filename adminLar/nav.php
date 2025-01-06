@@ -24,6 +24,9 @@ if ($_SESSION['adminLar'] != true) {
     .hover\:gestAdmin-change:hover img {
       content: url('../img/gestAdminHover.png'); 
     }
+    .hover\:stockGeral-change:hover img {
+      content: url('../img/stockGeralHover.png'); 
+    }
     .hover\:logout-change:hover img {
       content: url('../img/logoutHover.png'); 
     }
@@ -45,7 +48,10 @@ if ($_SESSION['adminLar'] != true) {
                 <li class="mt-10">
                     <a href="gerirUtentes.php" class="text-white block hover:addLar-change" title="Gerir utentes"><img src="../img/addLar.png" class="w-14 h-14"></a>
                 </li>
-                <li class="mt-52">
+                <li class="mt-10">
+                    <a href="stockGeral.php" class="text-white block hover:stockGeral-change" title="Stock Geral"><img src="../img/stockGeral.png" class="w-14 h-14"></a>
+                </li>
+                <li class="mt-28">
                     <a href="../index.php" class="text-white block hover:logout-change" title="Logout"><img src="../img/logout.png" class="w-14 h-14"></a>
                 </li>
             </ul>

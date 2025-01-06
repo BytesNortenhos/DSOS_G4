@@ -35,7 +35,7 @@ if ($_SESSION['adminLar'] != true) {
     </div>
     <a class="text-secondary text-xl ml-2">Verifique, edite e adicione medicamentos neste espaço!</a>
 
-    <div id="tec-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    <div id="med-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
     </div>
     <?php include("procuraMed.php"); ?>
     <div id="sucessToast" style="display:none"
@@ -73,7 +73,7 @@ if ($_SESSION['adminLar'] != true) {
             localStorage.removeItem('showRedToast');
         }
     });
-  const container = document.getElementById('tec-container');
+  const container = document.getElementById('med-container');
   if (medicamentos.length) {
     medicamentos.forEach(medicamento => {
       const card = document.createElement('div');
