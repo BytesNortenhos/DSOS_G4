@@ -33,7 +33,7 @@ if ($_SESSION['adminGer'] != true) {
         <img src="../img/add.png">
       </a>
     </div>
-    <a class="text-secondary text-xl ml-2">Verifique e edite os administradores na área abaixo:</a>
+    <a class="text-secondary text-xl ml-2">Verifique e adicione os administradores nesta área:</a>
 
     <div id="admin-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
     </div>
@@ -72,7 +72,6 @@ if ($_SESSION['adminGer'] != true) {
       card.appendChild(email);
       card.appendChild(nomeLar);
       card.appendChild(moradaLar);
-      card.appendChild(buttonEdit);
       container.appendChild(card);
     });
   } else {
