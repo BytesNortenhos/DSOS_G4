@@ -20,6 +20,9 @@ function login() {
             if(response === 'adminLar') {
                 window.location.href = 'adminLar/index.php';
             }
+            if(response === 'tecLar') {
+                window.location.href = 'tecLar/index.php';
+            }
         }
     });
 }
