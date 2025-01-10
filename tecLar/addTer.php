@@ -19,7 +19,8 @@ if ($_SESSION['tecLar'] != true) {
     <title>Registar terapêutica</title>
 </head>
 <style>
-    input[type="date"]::-webkit-calendar-picker-indicator,  input[type="time"]::-webkit-calendar-picker-indicator{
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
         filter: invert(100%) sepia(23%) saturate(508%) hue-rotate(32deg) brightness(98%) contrast(90%);
     }
 </style>
@@ -46,7 +47,6 @@ if ($_SESSION['tecLar'] != true) {
                     <select
                         class="h-10 w-44 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
                         id="idMedicamento" name="nomeMedicamento"></select>
-                    <?php include("procuraMedicamentos.php"); ?>
                 </div>
             </div>
             <div class="w-96 flex space-x-8 mt-5">
@@ -91,7 +91,7 @@ if ($_SESSION['tecLar'] != true) {
                         id="isSOS" name="isSOS">
                         <option value="2">Não</option>
                         <option value="1">Sim</option>
-                        </select>
+                    </select>
                 </div>
             </div>
             <button
@@ -179,14 +179,48 @@ if ($_SESSION['tecLar'] != true) {
     }
 
     const selectMedicamento = $('#idMedicamento');
+    const selectUtente = $('#idUtente');
 
-    if (medicamentos.length) {
-        medicamentos.forEach(medicamento => {
-            const option = $('<option></option>').val(medicamento.id).text(medicamento.nome + " (" + medicamento.marca + ")");
-            selectMedicamento.append(option);
+    // Listen for changes to the idUtente select
+    selectUtente.on('change', function () {
+        const idUtente = $(this).val(); // Get the selected value of idUtente
+
+        if (idUtente) {
+            // Perform an AJAX request to fetch medicamentos based on idUtente
+            $.ajax({
+                url: 'procuraMedicamentos.php', // Server-side script
+                type: 'POST',
+                data: { idUtente }, // Send idUtente as POST data
+                dataType: 'json', // Expect JSON response
+                success: function (medicamentos) {
+                    // Clear existing options in idMedicamento
+                    selectMedicamento.empty();
+
+                    if (medicamentos.length) {
+                        // Populate the dropdown with medicamentos
+                        medicamentos.forEach(medicamento => {
+                            const option = $('<option></option>')
+                                .val(medicamento.id)
+                                .text(`${medicamento.nome} (${medicamento.marca})`);
+                            selectMedicamento.append(option);
+                        });
+                    } else {
+                        // Add a default message if no medicamentos are found
+                        selectMedicamento.append('<option value="">No medicamentos available</option>');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching medicamentos:', error);
+                    selectMedicamento.empty();
+                    selectMedicamento.append('<option value="">Error loading medicamentos</option>');
+                }
+            });
+        } else {
+            // Clear the dropdown if no idUtente is selected
+            selectMedicamento.empty();
+            selectMedicamento.append('<option value="">Select an Utente first</option>');
         }
-        )
-    }
+    });
 </script>
 
 </html>
