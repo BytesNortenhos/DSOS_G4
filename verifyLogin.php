@@ -49,6 +49,7 @@ if ($result && $result->num_rows === 1) {
         $_SESSION['tecLar'] = true;
         $_SESSION['nome'] = $userData['nome'];
         $_SESSION['idLar'] = $userData['idLar'];
+        $_SESSION['idStaff'] = $userData['id'];
         echo 'tecLar';
         exit();
     }

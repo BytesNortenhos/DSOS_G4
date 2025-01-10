@@ -29,7 +29,7 @@ if ($_SESSION['tecLar'] != true) {
     <div class="relative">
       <h1 class="text-secondary text-6xl font-bold">GERIR TERAPÊUTICAS</h1>
       <a class="absolute top-0 right-0 bg-primary text-secondary font-bold py-2 px-4 rounded hover:add-change"
-        href="addTec.php">
+        href="addTer.php">
         <img src="../img/add.png">
       </a>
     </div>
@@ -83,7 +83,7 @@ if ($_SESSION['tecLar'] != true) {
   } else {
     const noTer = document.createElement('p');
     noTer.className = "text-redE text-2xl mt-10";
-    noTer.textContent = "Sem terapêuticas encontrados!";
+    noTer.textContent = "Sem terapêuticas encontradas!";
     container.appendChild(noTer);
   }
 </script>
