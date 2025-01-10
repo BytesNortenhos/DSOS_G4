@@ -45,6 +45,14 @@ if ($result && $result->num_rows === 1) {
         echo 'adminLar';
         exit();
     }
+    if ($userData['idTipo'] == 3) {
+        $_SESSION['tecLar'] = true;
+        $_SESSION['nome'] = $userData['nome'];
+        $_SESSION['idLar'] = $userData['idLar'];
+        $_SESSION['idStaff'] = $userData['id'];
+        echo 'tecLar';
+        exit();
+    }
 } else {
     $_SESSION['nao_autenticado'] = true;
     echo "nao autenticado";
