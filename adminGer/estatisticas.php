@@ -71,7 +71,7 @@ if ($_SESSION['adminGer'] != true) {
             <h2 class="text-2xl font-bold font-semibold text-primary" id="valUtenMaisSOS">
                 <img src="../img/loading.svg" alt="Icone de carregamento" class="-mt-4 text-center mx-auto">
             </h2>
-            <p class="text-sm text-primary mt-2" id="txtUtenMaisSOS">Utentes que consumiram mais Medicamentos SOS</p>
+            <p class="text-sm text-primary mt-2" id="txtUtenMaisSOS">Utentes que consumiram mais Medicamentos SOS diferentes</p>
         </div>
 
         <?php include("obterStats.php"); ?>

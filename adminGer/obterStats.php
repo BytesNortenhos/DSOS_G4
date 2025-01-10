@@ -47,7 +47,7 @@ if ($resultGetMedMaisUsados->num_rows > 0) {
     $medMaisUsados = "Sem Dados";
 }
 
-$sqlGetMedMaiorStock = "SELECT m.nome AS nomeMedicamento, SUM(s.quantidade) AS quantidadeEmStock FROM tblMedicamentos m JOIN tblStocks s ON m.id = s.idMedicamento GROUP BY m.id ORDER BY quantidadeEmStock DESC LIMIT 3;";
+$sqlGetMedMaiorStock = "SELECT m.nome AS nomeMedicamento, SUM(s.porTomar) AS quantidadeEmStock FROM tblMedicamentos m JOIN tblStocks s ON m.id = s.idMedicamento GROUP BY m.id ORDER BY quantidadeEmStock DESC LIMIT 3;";
 $resultGetMedMaiorStock = $conn->query($sqlGetMedMaiorStock);
 $medMaiorStock = "";
 $cMedMaiorStock = 1;
@@ -67,7 +67,7 @@ $utenteMaisSOS = "";
 $cUtenteMaisSOS = 1;
 if ($resultGetUtenteMaisSOS->num_rows > 0) {
     while ($row = $resultGetUtenteMaisSOS->fetch_assoc()) {
-        $utenteMaisSOS = $utenteMaisSOS . $cUtenteMaisSOS . ". " . $row["nomeUtente"] . " (" . $row["medicamentos_sos_consumidos"] . " medicamentos) <br>";
+        $utenteMaisSOS = $utenteMaisSOS . $cUtenteMaisSOS . ". " . $row["nomeUtente"] . " (" . $row["medicamentos_sos_consumidos"] . " medicamento(s)) <br>";
         $cUtenteMaisSOS++;
     }
 } else {

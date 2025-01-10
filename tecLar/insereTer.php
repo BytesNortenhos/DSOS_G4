@@ -11,7 +11,6 @@ if (
     empty($_POST['horario']) ||
     empty($_POST['diasSemana']) ||
     empty($_POST['totalTomar']) ||
-    !is_numeric($_POST['diasSemana']) ||
     !is_numeric($_POST['totalTomar'])
 ) {
     echo "campo vazio";

@@ -71,7 +71,7 @@ if ($_SESSION['tecLar'] != true) {
                         type="time" id="horario" name="horario">
                 </div>
                 <div class="flex flex-col">
-                    <label class="text-secondary text-m mb-1 ml-2 font-bold " for="diasSemana">Dias por semana:</label>
+                    <label class="text-secondary text-m mb-1 ml-2 font-bold " for="diasSemana">Dias a tomar:</label>
                     <input
                         class="h-10 w-44 rounded-2xl bg-primary border-solid border-secondary border-2 px-2 pl-2 text-secondary"
                         type="text" id="diasSemana" name="diasSemana">
