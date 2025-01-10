@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 include("../connection.php");
 
-$sql = "SELECT tblStocks.idMedicamento, SUM(tblStocks.quantidade) AS totalQuantidade, tblMedicamentos.nome, tblMedicamentos.marca
+$sql = "SELECT tblStocks.idMedicamento, SUM(tblStocks.porTomar) AS totalQuantidade, tblMedicamentos.nome, tblMedicamentos.marca
 FROM tblStocks
 INNER JOIN tblMedicamentos ON tblStocks.idMedicamento = tblMedicamentos.id
 INNER JOIN tblUtentes ON tblStocks.idUtente = tblUtentes.id

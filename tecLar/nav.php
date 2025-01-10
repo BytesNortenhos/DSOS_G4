@@ -15,8 +15,8 @@ if ($_SESSION['tecLar'] != true) {
     .hover\:gerirTer-change:hover img {
       content: url('../img/gerirTerHover.png'); 
     }
-    .hover\:addLar-change:hover img {
-      content: url('../img/addLarHover.png'); 
+    .hover\:stockUtente-change:hover img {
+      content: url('../img/stockUtenteHover.png'); 
     }
     .hover\:med-change:hover img {
       content: url('../img/gerirMedHover.png'); 
@@ -43,7 +43,7 @@ if ($_SESSION['tecLar'] != true) {
                     <a href="gerirTer.php" class="text-white block hover:gerirTer-change" title="Gerir terapêuticas"><img src="../img/gerirTer.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
-                    <a href="gerirMed.php" class="text-white block hover:med-change" title="Gerir medicamentos"><img src="../img/gerirMed.png" class="w-14 h-14"></a>
+                    <a href="stockUtente.php" class="text-white block hover:stockUtente-change" title="Stock por utente"><img src="../img/stockUtente.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
                     <a href="gerirUtentes.php" class="text-white block hover:addLar-change" title="Gerir utentes"><img src="../img/addLar.png" class="w-14 h-14"></a>

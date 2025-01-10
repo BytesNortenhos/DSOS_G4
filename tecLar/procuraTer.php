@@ -6,13 +6,14 @@ error_reporting(E_ALL);
 include("../connection.php");
 
 $sql = "SELECT U.nome AS nomeUtente, U.idLar, M.nome AS nomeMedicamento, M.marca, MT.horario, MT.diasSemana,
-T.dataInicio, MT.dataFim, S.nome AS nomeStaff
+T.dataInicio, MT.dataFim, S.nome AS nomeStaff, T.id
 FROM tblTerapeuticas T
 INNER JOIN tblUtentes U ON T.idUtente = U.id
 INNER JOIN tblMedicamentoTerapeutica MT ON T.id = MT.idTerapeutica
 INNER JOIN tblMedicamentos M ON MT.idMedicamento = M.id
 INNER JOIN tblStaff S ON T.idStaff = S.id
-WHERE U.idLar = ?";
+WHERE U.idLar = ? 
+AND T.estado = 1";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_SESSION['idLar']);
 $stmt->execute();

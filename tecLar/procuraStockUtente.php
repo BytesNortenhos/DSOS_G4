@@ -5,12 +5,10 @@ error_reporting(E_ALL);
 
 include("../connection.php");
 
-$sql = "SELECT tblStocks.idMedicamento, SUM(tblStocks.porTomar) AS totalQuantidade, tblMedicamentos.nome, tblMedicamentos.marca
-FROM tblStocks
-INNER JOIN tblMedicamentos ON tblStocks.idMedicamento = tblMedicamentos.id
-INNER JOIN tblUtentes ON tblStocks.idUtente = tblUtentes.id
-WHERE tblUtentes.idLar = ?
-GROUP BY tblStocks.idMedicamento, tblMedicamentos.nome, tblMedicamentos.marca;";
+$sql = "SELECT M.nome as nomeMed, M.marca, S.porTomar, U.nome, U.contacto FROM tblMedicamentos AS M
+INNER JOIN tblStocks AS S ON S.idMedicamento = M.id
+INNER JOIN tblUtentes AS U ON U.id = S.idUtente
+WHERE M.idLar = ?;";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_SESSION['idLar']);
 $stmt->execute();

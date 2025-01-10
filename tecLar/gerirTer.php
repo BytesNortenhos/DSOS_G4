@@ -18,8 +18,8 @@ if ($_SESSION['tecLar'] != true) {
   <script src="../script/adminLarScript.js"></script>
   <title>Gerir terapêuticas</title>
   <style>
-      .hover\:add-change:hover img {
-      content: url('../img/addHover.png'); 
+    .hover\:add-change:hover img {
+      content: url('../img/addHover.png');
     }
   </style>
 </head>
@@ -72,12 +72,21 @@ if ($_SESSION['tecLar'] != true) {
       tecResp.className = "text-sm text-primary mt-2";
       tecResp.textContent = "Técnico responsável: " + terapeutica.nomeStaff;;
 
+      buttonEdit = document.createElement('button');
+      buttonEdit.className = "bg-primary text-secondary font-bold py-2 px-4 rounded mt-4";
+      buttonEdit.textContent = "Modificar";
+      buttonEdit.onclick = function () {
+        setSession(terapeutica.id);
+        window.location.href = "editTer.php?";
+      }
+
       card.appendChild(nomeUtente);
       card.appendChild(nomeMedicamento);
       card.appendChild(marcaMedicamento);
-        card.appendChild(horario);
-        card.appendChild(datas);
-        card.appendChild(tecResp);
+      card.appendChild(horario);
+      card.appendChild(datas);
+      card.appendChild(tecResp);
+      card.appendChild(buttonEdit);
       container.appendChild(card);
     });
   } else {
@@ -85,6 +94,12 @@ if ($_SESSION['tecLar'] != true) {
     noTer.className = "text-redE text-2xl mt-10";
     noTer.textContent = "Sem terapêuticas encontradas!";
     container.appendChild(noTer);
+  }
+  function setSession(idTer) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "setSessions.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("idTer=" + idTer);
   }
 </script>
 
