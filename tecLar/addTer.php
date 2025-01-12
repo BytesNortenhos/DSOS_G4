@@ -181,23 +181,19 @@ if ($_SESSION['tecLar'] != true) {
     const selectMedicamento = $('#idMedicamento');
     const selectUtente = $('#idUtente');
 
-    // Listen for changes to the idUtente select
     selectUtente.on('change', function () {
-        const idUtente = $(this).val(); // Get the selected value of idUtente
+        const idUtente = $(this).val(); 
 
         if (idUtente) {
-            // Perform an AJAX request to fetch medicamentos based on idUtente
             $.ajax({
-                url: 'procuraMedicamentos.php', // Server-side script
+                url: 'procuraMedicamentos.php', 
                 type: 'POST',
-                data: { idUtente }, // Send idUtente as POST data
-                dataType: 'json', // Expect JSON response
+                data: { idUtente }, 
+                dataType: 'json', 
                 success: function (medicamentos) {
-                    // Clear existing options in idMedicamento
                     selectMedicamento.empty();
 
                     if (medicamentos.length) {
-                        // Populate the dropdown with medicamentos
                         medicamentos.forEach(medicamento => {
                             const option = $('<option></option>')
                                 .val(medicamento.id)
@@ -205,7 +201,6 @@ if ($_SESSION['tecLar'] != true) {
                             selectMedicamento.append(option);
                         });
                     } else {
-                        // Add a default message if no medicamentos are found
                         selectMedicamento.append('<option value="">No medicamentos available</option>');
                     }
                 },
@@ -216,7 +211,6 @@ if ($_SESSION['tecLar'] != true) {
                 }
             });
         } else {
-            // Clear the dropdown if no idUtente is selected
             selectMedicamento.empty();
             selectMedicamento.append('<option value="">Select an Utente first</option>');
         }
