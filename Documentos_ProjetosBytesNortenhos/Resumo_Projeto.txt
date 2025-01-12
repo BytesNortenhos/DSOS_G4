@@ -1,0 +1,49 @@
+Quando o utente fizer login, ele conseguirá ver os medicamentos que estarão associados a ele, quando os deverá tomar e algumas informações pessoais.
+
+Os administradores de cada lar também poderão fazer login. Eles terão a capacidade de adicionar novos utentes, técnicos, medicamentos e carregar ficheiros CSV com informações.
+
+Além disso, o administrador geral terá acesso para criar novos lares e visualizar estatísticas, como o número de utentes em cada lar e informações básicas sobre os lares. Ele também conseguirá ver quais serão os medicamentos mais usados, os medicamentos SOS mais tomados, os utentes que mais tomarão Ben-u-ron, entre outros detalhes.
+
+- - - -
+
+Pretendido: 
+- Aplicação para gerir as terapêuticas (medicamentos) que os vários utentes tomam ao longo do dia.
+- Gerir stock de cada medicamento para ser possível encomendar antecipadamente
+
+BD deve conter:
+- Dados dos Utentes
+- Dados das suas terapêuticas (medicamentos)
+- Dados dos Lares
+
+Regras das Terapêuticas:
+- Possuem horas/dias para serem tomadas
+- Possibilidade de medicamentos tipo SOS, para serem tomados em casos extremos e fora dos horários
+- Podem ser continuas ou por um período de tempo específico
+
+Stocks:
+- Indicados por utente (facilita as despesas por utente)
+- Possibilidade de consulta em geral, caso necessário usar medicamentos *de outros utentes
+
+Técnicos responsáveis pelas Terapêuticas:
+- Consulta dos stocks dos utentes e GERAIS DO LAR EM QUE TRABALHAM
+- Criam/Administram as terapêuticas
+  > devem ser validadas de forma aos stocks serem atualizados
+
+Administrador (por lar):
+- Existe 1 por cada lar
+- Insere utentes, técnicos e medicamentos
+- Pode inserir medicamentos por CSV
+
+Administrador (geral):
+- Pode criar novos lares
+- Obtém estatísticas:
+  > número de utentes por lar, 
+  > medicamentos mais usados, 
+  > utentes que tomam mais medicamentos SOS, etc.
+
+Dados Mínimos de Medicamentos:
+- Dose
+- Princípio ativo
+- Nome
+- Marca
+- Toma (oral, injetável, …)

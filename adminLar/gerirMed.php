@@ -23,7 +23,7 @@ if ($_SESSION['adminLar'] != true) {
     }
 
     .hover\:upload-change:hover img {
-      content: url('../img/addHover.png'); 
+      content: url('../img/uploadHover.png'); 
     }
   </style>
 </head>
@@ -35,7 +35,7 @@ if ($_SESSION['adminLar'] != true) {
       <!-- ATUALIZAR IMAGEM -->
       <a class="absolute top-0 right-24 bg-primary text-secondary font-bold py-2 px-4 rounded hover:upload-change"
         href="#" id="submitLink" onclick="uploadUtente();">
-        <img src="../img/add.png">
+        <img src="../img/upload.png">
       </a>
       <a class="absolute top-0 right-0 bg-primary text-secondary font-bold py-2 px-4 rounded hover:add-change"
         href="addMed.php">
