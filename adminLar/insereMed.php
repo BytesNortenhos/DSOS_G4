@@ -35,12 +35,12 @@ if ($result && $result->num_rows === 1) {
     echo "marca ja existe";
 }
 else{
-    $query2 = "INSERT INTO tblMedicamentos (dose, principioAtivo, nome, marca, toma) VALUES (?, ?, ?, ?, ?)";
+    $query2 = "INSERT INTO tblMedicamentos (dose, principioAtivo, nome, marca, toma, idLar) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query2);
     if (!$stmt) {
         die("Statement preparation failed: " . $conn->error);
     }
-    $stmt->bind_param('sssss', $dose, $princAtivo, $nome, $marca, $toma);
+    $stmt->bind_param('ssssss', $dose, $princAtivo, $nome, $marca, $toma, $_SESSION['idLar']);
     $stmt->execute();
     echo "sucesso";
 }
