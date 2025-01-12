@@ -25,6 +25,7 @@ function addTer() {
         processData: false,
         contentType: false,
         success: function (response) {
+            console.log(response);
             if (response.trim() === 'sucesso') {
                 localStorage.setItem('showToast', 'true');
                 location.reload();
@@ -74,6 +75,35 @@ function modTer() {
             console.error('AJAX error:', status, error);
         }
     });
+}
+
+function valTer() {
+    var nTomados = document.getElementById('nTomados').value;
+    var selectElement = document.getElementById('nTomados');
+    var porTomar = Math.max(...Array.from(selectElement.options, option => parseInt(option.value, 10)));
+
+    var formData = new FormData();
+    formData.append('nTomados', nTomados);
+    formData.append('porTomar', porTomar);
+
+    $.ajax({
+        type: 'POST',
+        url: 'valTer.php',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            console.log(response);
+            if (response.trim() === 'sucesso') {
+                localStorage.setItem('showToast', 'true');
+                location.href = 'validarTer.php';
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('AJAX error:', status, error);
+        }
+    });
+
 }
 
 function closeToast(id) {

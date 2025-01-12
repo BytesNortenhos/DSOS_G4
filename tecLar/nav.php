@@ -18,11 +18,8 @@ if ($_SESSION['tecLar'] != true) {
     .hover\:stockUtente-change:hover img {
       content: url('../img/stockUtenteHover.png'); 
     }
-    .hover\:med-change:hover img {
-      content: url('../img/gerirMedHover.png'); 
-    }
-    .hover\:gestAdmin-change:hover img {
-      content: url('../img/gestAdminHover.png'); 
+    .hover\:validar-change:hover img {
+      content: url('../img/validarTerHover.png'); 
     }
     .hover\:stockGeral-change:hover img {
       content: url('../img/stockGeralHover.png'); 
@@ -46,7 +43,7 @@ if ($_SESSION['tecLar'] != true) {
                     <a href="stockUtente.php" class="text-white block hover:stockUtente-change" title="Stock por utente"><img src="../img/stockUtente.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
-                    <a href="gerirUtentes.php" class="text-white block hover:addLar-change" title="Gerir utentes"><img src="../img/addLar.png" class="w-14 h-14"></a>
+                    <a href="validarTer.php" class="text-white block hover:validar-change" title="Validar terapêuticas"><img src="../img/validarTer.png" class="w-14 h-14"></a>
                 </li>
                 <li class="mt-10">
                     <a href="stockGeral.php" class="text-white block hover:stockGeral-change" title="Stock Geral"><img src="../img/stockGeral.png" class="w-14 h-14"></a>

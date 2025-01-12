@@ -55,7 +55,7 @@ if ($stmt->execute()) {
             $stmt3->bind_result($id);
             if ($stmt3->fetch()) {
                 $stmt3->close(); 
-                $query4 = "UPDATE tblStocks SET porTomar = porTomar + ? WHERE id = ?";
+                $query4 = "UPDATE tblStocks SET porTomar = ? WHERE id = ?";
                 $stmt4 = $conn->prepare($query4);
                 if (!$stmt4) {
                     die("Statement preparation failed: " . $conn->error);
